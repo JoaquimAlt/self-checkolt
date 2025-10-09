@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen gap-5">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-5">
       <h1>Se você é gayzinho clique aqui</h1>
-      <Button>Click me</Button>
+      <Button asChild>
+        <Link href={"/fsw-donalds"}>Click me</Link>
+      </Button>
     </div>
   );
 }
