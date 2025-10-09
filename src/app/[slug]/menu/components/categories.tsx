@@ -45,7 +45,7 @@ export default function RestaurantCategories({
         </div>
         <div className="mt-3 flex flex-row items-center gap-1 text-xs text-green-500">
           <ClockIcon size={12} />
-          <h1>Aberto</h1>
+          <p>Aberto</p>
         </div>
       </div>
 

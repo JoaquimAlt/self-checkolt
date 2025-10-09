@@ -37,7 +37,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply h-full bg-background text-foreground;
   }
   h1,
   h2,
@@ -46,5 +46,8 @@
   h5,
   h6 {
     @apply font-bold text-foreground;
+  }
+  html {
+    @apply h-full;
   }
 }

@@ -18,7 +18,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   return (
-    <div>
+    <div className="flex h-full flex-col">
       <ProductHeader product={product} />
       <ProductDescription product={product} />
     </div>
