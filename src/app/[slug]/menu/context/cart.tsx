@@ -13,6 +13,8 @@ export interface ICartContext {
   products: CartProduct[];
   toggleCart: () => void;
   addToCart: (product: CartProduct) => void;
+  decreaseFromCart: (productId: string) => void;
+  removeFromCart: (productId: string) => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -20,6 +22,8 @@ export const CartContext = createContext<ICartContext>({
   products: [],
   toggleCart: () => {},
   addToCart: () => {},
+  decreaseFromCart: () => {},
+  removeFromCart: () => {},
 });
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
@@ -32,15 +36,34 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     const productAlreadyInCart = products.find((p) => p.id === product.id);
     if (productAlreadyInCart) {
       setProducts((prevProducts) =>
-        prevProducts.map((p) =>
-          p.id === product.id
-            ? { ...p, quantity: p.quantity + product.quantity }
-            : p,
+        prevProducts.map((prevProduct) =>
+          prevProduct.id === product.id
+            ? {
+                ...prevProduct,
+                quantity: prevProduct.quantity + product.quantity,
+              }
+            : prevProduct,
         ),
       );
     } else {
       setProducts((prevProducts) => [...prevProducts, product]);
     }
+  };
+
+  const decreaseFromCart = (productId: string) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((prevProduct) =>
+        prevProduct.id === productId && prevProduct.quantity > 1
+          ? { ...prevProduct, quantity: prevProduct.quantity - 1 }
+          : prevProduct,
+      ),
+    );
+  };
+
+  const removeFromCart = (productId: string) => {
+    setProducts((prevProducts) =>
+      prevProducts.filter((prevProduct) => prevProduct.id !== productId),
+    );
   };
 
   return (
@@ -50,6 +73,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         products,
         toggleCart,
         addToCart,
+        decreaseFromCart,
+        removeFromCart,
       }}
     >
       {children}
