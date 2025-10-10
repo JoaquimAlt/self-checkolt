@@ -21,7 +21,7 @@ export default function RestaurantHeader({
   };
 
   return (
-    <div className="relative h-72 w-full">
+    <div className="relative h-72 w-full" suppressHydrationWarning>
       <Button
         className="absolute left-4 top-4 z-50 rounded-full"
         variant={"secondary"}

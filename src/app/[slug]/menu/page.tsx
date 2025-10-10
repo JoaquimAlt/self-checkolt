@@ -34,7 +34,7 @@ export default async function RestaurantMenuPage({
   }
 
   return (
-    <div>
+    <div suppressHydrationWarning>
       <RestaurantHeader restaurant={restaurant} />
       <RestaurantCategories restaurant={restaurant} />
     </div>

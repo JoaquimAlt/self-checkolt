@@ -17,7 +17,7 @@ interface ProductDescriptionProps {
 export default function ProductDescription({
   product,
 }: ProductDescriptionProps) {
-  const { isOpen, toggleCart } = useContext(CartContext);
+  const { isOpen, toggleCart, addToCart } = useContext(CartContext);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -30,6 +30,7 @@ export default function ProductDescription({
   const handleAddToCart = () => {
     if (!isOpen) {
       toggleCart();
+      addToCart({ ...product, quantity });
     }
   };
 
