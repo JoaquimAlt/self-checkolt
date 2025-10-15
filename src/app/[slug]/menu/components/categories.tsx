@@ -69,7 +69,7 @@ export default function RestaurantCategories({
 
       <div className="flex flex-col items-center justify-center gap-2">
         <h2 className="w-full px-6 py-2 font-bold">{selectedCategory.name}</h2>
-        <div className="flex flex-col gap-1">
+        <div className="flex w-full flex-col gap-1">
           {selectedCategory.products.length > 0 &&
             selectedCategory.products.map((product) => (
               <ProductCard key={product.id} product={product} />

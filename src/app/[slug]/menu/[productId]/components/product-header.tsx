@@ -20,29 +20,29 @@ export default function ProductHeader({ product }: ProductHeaderProps) {
 
   return (
     <>
-      <div className="relative h-72 w-full">
+      <div className="relative h-72 w-full md:h-screen">
         <Button
           className="absolute left-4 top-4 z-50 rounded-full"
           variant={"secondary"}
-          size={"icon"}
           onClick={handleBackClick}
         >
           <ArrowLeft />
+          <p className="hidden md:flex">Voltar</p>
         </Button>
         <Image
-          className="object-contain"
+          className="bg-gray-200 object-contain"
           fill
           src={product.imageUrl}
           alt={product.name}
         />
-        <Button
-          className="absolute right-4 top-4 z-50 rounded-full"
-          variant={"secondary"}
-          size={"icon"}
-        >
-          <ScrollTextIcon />
-        </Button>
       </div>
+      <Button
+        className="absolute right-4 top-4 z-50 rounded-full"
+        variant={"secondary"}
+      >
+        <p className="hidden md:flex">Histórico</p>
+        <ScrollTextIcon />
+      </Button>
     </>
   );
 }

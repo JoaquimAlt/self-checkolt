@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductsCardProps) {
   const { slug } = useParams<{ slug: string }>();
 
   return (
-    <Card className="transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
+    <Card className="w-full transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
       <Link href={`/${slug}/menu/${product.id}`}>
         <CardContent className="flex flex-row items-center justify-between gap-6 border-none py-5">
           <div className="flex flex-col items-start">

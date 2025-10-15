@@ -85,7 +85,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         removeFromCart,
       }}
     >
-      <div suppressHydrationWarning>{children}</div>
+      {children}
     </CartContext.Provider>
   );
 };
